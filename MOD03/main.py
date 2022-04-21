@@ -84,11 +84,10 @@ import random
 
 def test_func(*args, **kwargs):
     rnd = random.random()
-    print(f"""
-            RND: {rnd}
-            args: {args if args else 'sem args'}
-            kwargs: {kwargs if kwargs else 'sem kwargs'}
-    """)
+    print(
+        f"""\x1f            RND: {rnd}\x1f            args: {args or 'sem args'}\x1f            kwargs: {kwargs or 'sem kwargs'}\x1f    """
+    )
+
     if rnd < .2:
         raise ConnectionAbortedError('Conexao foi finalizada')
     elif rnd < .4:
@@ -113,11 +112,10 @@ import random
                                     max_tries=10)
 def test_func(*args, **kwargs):
     rnd = random.random()
-    print(f"""
-            RND: {rnd}
-            args: {args if args else 'sem args'}
-            kwargs: {kwargs if kwargs else 'sem kwargs'}
-    """)
+    print(
+        f"""\x1f            RND: {rnd}\x1f            args: {args or 'sem args'}\x1f            kwargs: {kwargs or 'sem kwargs'}\x1f    """
+    )
+
     if rnd < .2:
         raise ConnectionAbortedError('Conexao foi finalizada')
     elif rnd < .4:
@@ -151,8 +149,8 @@ log.addHandler(ch)
 def test_func(*args, **kwargs):
     rnd = random.random()
     log.debug(f"RND: {rnd}")
-    log.info (f"args: {args if args else 'sem args'}")
-    log.info (f"kwargs: {kwargs if kwargs else 'sem kwargs'}")
+    log.info(f"args: {args or 'sem args'}")
+    log.info(f"kwargs: {kwargs or 'sem kwargs'}")
 
     if rnd < .2:
         log.error('Conexao foi finalizada')
